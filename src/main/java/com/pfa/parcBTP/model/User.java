@@ -8,17 +8,24 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
 
 @Entity
+@Inheritance(strategy =InheritanceType.JOINED)
+@DiscriminatorColumn(name="profil")
+// @NamedQuery(name="user.findAll", query="SELECT u FROM user u")
 @Table(name = "user")
-public class User {
+public class User implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
     private Long id;
+
 
     @NotBlank
     @Size(min=3, max = 50)
@@ -66,19 +73,12 @@ public class User {
         this.phoneNumber = users.getPhoneNumber();
         this.email = users.getEmail();
         this.dateOfBirth =users.getDateOfBirth();
-        this.id = users.getId();
         this.password = users.getPassword();
         this.roles = users.getRoles();
     }
 
 
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getFirstName() {
         return firstName;
