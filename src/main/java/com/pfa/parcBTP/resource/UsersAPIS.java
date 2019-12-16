@@ -1,14 +1,8 @@
 package com.pfa.parcBTP.resource;
 
 
-import com.pfa.parcBTP.model.ChefChantier;
-import com.pfa.parcBTP.model.Conducteur;
-import com.pfa.parcBTP.model.Magasinier;
-import com.pfa.parcBTP.model.Transporter;
-import com.pfa.parcBTP.repository.ChefChantierRepository;
-import com.pfa.parcBTP.repository.ConducteurRepository;
-import com.pfa.parcBTP.repository.MagasinierRepository;
-import com.pfa.parcBTP.repository.TransporterRepository;
+import com.pfa.parcBTP.model.*;
+import com.pfa.parcBTP.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Optional;
 
-@RequestMapping("/rest")
+@RequestMapping("/api/users")
 @RestController
 public class UsersAPIS {
 
@@ -33,8 +27,21 @@ public class UsersAPIS {
     @Autowired
     ConducteurRepository conducteurRepository;
 
+    @Autowired
+    AdminRepository adminRepository;
 
-    @PreAuthorize("hasAnyRole('MAGASINIER')")
+
+    @PreAuthorize("hasAnyRole('ADMIN')")
+    @GetMapping("/admin")
+    public Optional<Admin> adminAPI() {
+
+        return adminRepository.findByUsername("rachidrabou");
+
+        //return "Hello Youtube";
+    }
+
+
+    @PreAuthorize("hasAnyRole('MAGASINIER','ADMIN')")
     @GetMapping("/magasinier")
     public Optional<Magasinier> magasinierAPI() {
 
@@ -58,7 +65,7 @@ public class UsersAPIS {
     @GetMapping("/transporter")
     public Optional<Transporter> transporterAPI() {
 
-        return transporterRepository.findByUsername("rachidrabou");
+        return transporterRepository.findByUsername("nouhailasahib");
 
         //return "Hello Youtube";
     }
@@ -67,7 +74,7 @@ public class UsersAPIS {
     @GetMapping("/chef")
     public Optional<ChefChantier> chefChantierAPI() {
 
-        return chefChantierRepository.findByUsername("nouhailasahib");
+        return chefChantierRepository.findByUsername("asmarabou");
         //return "Hello Youtube";
     }
 
@@ -76,6 +83,7 @@ public class UsersAPIS {
     public String securedHello() {
         return "Secured Hello";
     }
+
 
     @GetMapping("/secured/alternate")
     public String alternate() {
