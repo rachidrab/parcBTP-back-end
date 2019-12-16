@@ -1,6 +1,10 @@
 package com.pfa.parcBTP.model;
 
 
+
+
+import org.hibernate.annotations.NaturalId;
+
 import javax.persistence.*;
 
 @Entity
@@ -8,18 +12,16 @@ import javax.persistence.*;
 public class Role {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "role_id")
     private int roleId;
 
     @Column(name = "role")
     private String role;
 
-    public Role(Role role) {
-        this.role = role.getRole();
-    }
 
     public Role() {
+
     }
 
     public int getRoleId() {

@@ -3,7 +3,7 @@ package com.pfa.parcBTP.service;
 
 import com.pfa.parcBTP.model.CustomUserDetails;
 import com.pfa.parcBTP.model.User;
-import com.pfa.parcBTP.repository.UsersRepository;
+import com.pfa.parcBTP.repository.interfaces.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -28,4 +28,7 @@ public class CustomUserDetailsService implements UserDetailsService {
         return optionalUsers
                 .map(CustomUserDetails::new).get();
     }
+
+
+
 }

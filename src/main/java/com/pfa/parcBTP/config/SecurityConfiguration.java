@@ -1,7 +1,7 @@
 package com.pfa.parcBTP.config;
 
 
-import com.pfa.parcBTP.repository.UsersRepository;
+import com.pfa.parcBTP.repository.interfaces.UsersRepository;
 import com.pfa.parcBTP.service.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;

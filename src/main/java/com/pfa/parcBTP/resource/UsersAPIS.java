@@ -2,14 +2,12 @@ package com.pfa.parcBTP.resource;
 
 
 import com.pfa.parcBTP.model.*;
-import com.pfa.parcBTP.repository.*;
+import com.pfa.parcBTP.repository.interfaces.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.Optional;
+import java.util.*;
 
 @RequestMapping("/api/users")
 @RestController
@@ -30,24 +28,78 @@ public class UsersAPIS {
     @Autowired
     AdminRepository adminRepository;
 
+    @Autowired
+    UsersRepository usersRepository;
 
-    @PreAuthorize("hasAnyRole('ADMIN')")
-    @GetMapping("/admin")
-    public Optional<Admin> adminAPI() {
+    ChefChantier chefChantier;
 
-        return adminRepository.findByUsername("rachidrabou");
 
-        //return "Hello Youtube";
+    @GetMapping("/all")
+    public Iterable<User> getAllUsersAPI() {
+        return usersRepository.findAll();
     }
 
+    // Tous Les Utilisateurs
+
+    @PreAuthorize("hasAnyRole('ADMIN')")
+    @GetMapping("/magasinier/all")
+    public Iterable<Magasinier> getAllMagasinierAPI() {
+        return magasinierRepository.findAll();
+    }
+
+    // Tous Les Magasiniers
+
+    @PreAuthorize("hasAnyRole('ADMIN')")
+    @GetMapping("/chef_chantier/all")
+    public Iterable<ChefChantier> getAllChefChantierAPI() {
+        return chefChantierRepository.findAll();
+    }
+
+    // Tous Les Transporteurs
+
+    @PreAuthorize("hasAnyRole('ADMIN')")
+    @GetMapping("/transporteur/all")
+    public Iterable<Transporter> getAllTransporteurAPI() {
+        return transporterRepository.findAll();
+    }
+
+    // Tous Les Conducteurs
+
+    @PreAuthorize("hasAnyRole('ADMIN')")
+    @GetMapping("/conducteur/all")
+    public Iterable<Conducteur> getAllConducteurAPI() {
+        return conducteurRepository.findAll();
+    }
+
+
+
+
+    @GetMapping("/{id}")
+    public Optional<User> getUserAPI(@PathVariable long id) {
+        return usersRepository.findById(id);
+    }
+
+    @GetMapping("/magasinier/{id}")
+    public Optional<Magasinier> getMagasinierAPI(@PathVariable int id) {
+        return magasinierRepository.findById(id);
+    }
+
+
+    // POST APIS
+    @PostMapping("/add")
+    Magasinier addMagasinier(@RequestBody Magasinier magasinier) {
+        return magasinierRepository.save(magasinier);
+    }
+
+
+
+    // APIS pour tester
 
     @PreAuthorize("hasAnyRole('MAGASINIER','ADMIN')")
     @GetMapping("/magasinier")
     public Optional<Magasinier> magasinierAPI() {
-
         return magasinierRepository.findByUsername("khalidrabou");
 
-        //return "Hello Youtube";
     }
 
 

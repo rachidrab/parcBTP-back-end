@@ -14,5 +14,8 @@ public class Magasinier extends User implements Serializable {
 
 
     public Magasinier() {
+
     }
+
+
 }
