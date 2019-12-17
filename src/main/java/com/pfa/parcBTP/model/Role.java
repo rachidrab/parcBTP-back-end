@@ -3,8 +3,6 @@ package com.pfa.parcBTP.model;
 
 
 
-import org.hibernate.annotations.NaturalId;
-
 import javax.persistence.*;
 
 @Entity

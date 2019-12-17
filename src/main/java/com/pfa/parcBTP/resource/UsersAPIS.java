@@ -1,6 +1,7 @@
 package com.pfa.parcBTP.resource;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.pfa.parcBTP.model.*;
 import com.pfa.parcBTP.repository.interfaces.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +32,7 @@ public class UsersAPIS {
     @Autowired
     UsersRepository usersRepository;
 
-    ChefChantier chefChantier;
+
 
 
     @GetMapping("/all")
@@ -57,7 +58,7 @@ public class UsersAPIS {
 
     // Tous Les Transporteurs
 
-    @PreAuthorize("hasAnyRole('ADMIN')")
+
     @GetMapping("/transporteur/all")
     public Iterable<Transporter> getAllTransporteurAPI() {
         return transporterRepository.findAll();
@@ -86,9 +87,10 @@ public class UsersAPIS {
 
 
     // POST APIS
+
     @PostMapping("/add")
-    Magasinier addMagasinier(@RequestBody Magasinier magasinier) {
-        return magasinierRepository.save(magasinier);
+    Transporter addTransporter(@RequestBody Transporter transporter) {
+        return transporterRepository.save(transporter);
     }
 
 

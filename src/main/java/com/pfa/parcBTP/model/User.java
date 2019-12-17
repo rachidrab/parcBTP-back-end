@@ -1,6 +1,7 @@
 package com.pfa.parcBTP.model;
 
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.hibernate.annotations.NaturalId;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -15,7 +16,7 @@ import java.util.Set;
 
 @Entity
 @Inheritance(strategy =InheritanceType.JOINED)
-@DiscriminatorColumn(name="profil")
+@DiscriminatorColumn(name="role")
 // @NamedQuery(name="user.findAll", query="SELECT u FROM user u")
 @Table(name = "user")
 public class User implements Serializable {
@@ -58,6 +59,7 @@ public class User implements Serializable {
     @NotBlank
     @Size(min=6, max = 100)
     private String password;
+
 
 
     @ManyToMany(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
