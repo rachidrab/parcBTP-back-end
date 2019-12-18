@@ -1,4 +1,4 @@
-package com.pfa.parcBTP.repository.interfaces;
+package com.pfa.parcBTP.repository;
 
 import com.pfa.parcBTP.model.Transporter;
 import org.springframework.data.jpa.repository.JpaRepository;

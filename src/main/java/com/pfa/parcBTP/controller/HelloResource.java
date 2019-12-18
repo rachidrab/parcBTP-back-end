@@ -1,4 +1,4 @@
-package com.pfa.parcBTP.resource;
+package com.pfa.parcBTP.controller;
 
 
 import org.springframework.security.access.prepost.PreAuthorize;

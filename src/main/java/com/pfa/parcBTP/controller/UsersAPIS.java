@@ -1,9 +1,9 @@
-package com.pfa.parcBTP.resource;
+package com.pfa.parcBTP.controller;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.pfa.parcBTP.model.*;
-import com.pfa.parcBTP.repository.interfaces.*;
+import com.pfa.parcBTP.repository.*;
+import com.pfa.parcBTP.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;

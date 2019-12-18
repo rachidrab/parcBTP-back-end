@@ -1,7 +1,7 @@
-package com.pfa.parcBTP.resource;
+package com.pfa.parcBTP.controller;
 
 import com.pfa.parcBTP.model.User;
-import com.pfa.parcBTP.repository.interfaces.UsersRepository;
+import com.pfa.parcBTP.repository.UsersRepository;
 import org.junit.jupiter.api.Test;
 
 import java.util.Optional;

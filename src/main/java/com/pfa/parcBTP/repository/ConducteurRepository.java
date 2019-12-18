@@ -1,4 +1,4 @@
-package com.pfa.parcBTP.repository.interfaces;
+package com.pfa.parcBTP.repository;
 
 import com.pfa.parcBTP.model.ChefChantier;
 import com.pfa.parcBTP.model.Conducteur;

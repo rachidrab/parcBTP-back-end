@@ -7,6 +7,8 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -35,14 +37,12 @@ public class ObjetMobile implements Serializable {
     private double poids;
 
 
-    @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="status")
-    public Status status;
+    @OneToMany(cascade=CascadeType.ALL)
+    private List<Status> status ;
 
 
-    @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="marque")
-    public Marque marque;
+    @OneToMany(cascade=CascadeType.ALL)
+    private List<Marque> marques;
 
 
     public int getId() {
@@ -77,5 +77,19 @@ public class ObjetMobile implements Serializable {
         this.poids = poids;
     }
 
+    public List<Status> getStatus() {
+        return status;
+    }
 
+    public void setStatus(List<Status> status) {
+        this.status = status;
+    }
+
+    public List<Marque> getMarques() {
+        return marques;
+    }
+
+    public void setMarques(List<Marque> marques) {
+        this.marques = marques;
+    }
 }

@@ -1,4 +1,4 @@
-package com.pfa.parcBTP.repository.interfaces;
+package com.pfa.parcBTP.repository;
 
 import com.pfa.parcBTP.model.Camion;
 import com.pfa.parcBTP.model.Engin;

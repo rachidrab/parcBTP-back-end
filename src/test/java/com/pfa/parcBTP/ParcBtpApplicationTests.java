@@ -1,8 +1,8 @@
 package com.pfa.parcBTP;
 
 import com.pfa.parcBTP.model.Transporter;
-import com.pfa.parcBTP.repository.interfaces.ChefChantierRepository;
-import com.pfa.parcBTP.repository.interfaces.TransporterRepository;
+import com.pfa.parcBTP.repository.ChefChantierRepository;
+import com.pfa.parcBTP.repository.TransporterRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

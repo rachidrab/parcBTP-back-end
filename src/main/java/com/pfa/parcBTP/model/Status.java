@@ -5,28 +5,23 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
-@JsonIgnoreProperties(ignoreUnknown = true)
-@Entity
-public class Status {
 
+@Entity
+public class Status implements Serializable {
+    private static final long serialVersionUID = 1L;
+
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
     private int status_id;
 
     private String etat;
 
-
-
-
-    @OneToMany(mappedBy = "status")
-    private List<ObjetMobile> objets_mobiles;
-
-
-
+    @ManyToOne
+    private ObjetMobile objetMobile;
 
 
     public Status() { }
@@ -48,11 +43,4 @@ public class Status {
         this.etat = etat;
     }
 
-    public List<ObjetMobile> getObjets_mobiles() {
-        return objets_mobiles;
-    }
-
-    public void setObjets_mobiles(List<ObjetMobile> objets_mobiles) {
-        this.objets_mobiles = objets_mobiles;
-    }
 }

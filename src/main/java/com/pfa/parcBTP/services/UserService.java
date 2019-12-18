@@ -1,12 +1,7 @@
-package com.pfa.parcBTP.repository.services;
-
-import com.pfa.parcBTP.model.User;
+package com.pfa.parcBTP.services;
 
 
 import javax.persistence.EntityManager;
-import javax.persistence.Query;
-
-import java.util.Collection;
 
 public class UserService {
 

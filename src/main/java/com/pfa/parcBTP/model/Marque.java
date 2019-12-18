@@ -4,15 +4,14 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.List;
 
-@JsonIgnoreProperties(ignoreUnknown = true)
+
 @Entity
 public class Marque {
 
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
     private int marque_id;
 
@@ -20,12 +19,8 @@ public class Marque {
 
     private String modele;
 
-
-
-
-    @OneToMany(mappedBy = "marque")
-    private List<ObjetMobile> objets_mobiles;
-
+    @ManyToOne
+    private ObjetMobile objetMobile;
 
 
     public Marque() {
@@ -55,11 +50,5 @@ public class Marque {
         this.modele = modele;
     }
 
-    public List<ObjetMobile> getObjets_mobiles() {
-        return objets_mobiles;
-    }
 
-    public void setObjets_mobiles(List<ObjetMobile> objets_mobiles) {
-        this.objets_mobiles = objets_mobiles;
-    }
 }

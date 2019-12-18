@@ -1,8 +1,7 @@
 package com.pfa.parcBTP.model;
 
-import javax.persistence.DiscriminatorValue;
-import javax.persistence.Entity;
-import java.io.Serializable;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @DiscriminatorValue("engin")
@@ -12,8 +11,11 @@ public class Engin extends ObjetMobile {
 
     private String carburant;
 
-    public Engin() {
-    }
+
+    @OneToMany(fetch= FetchType.LAZY, cascade= CascadeType.ALL)
+    private List<Accessoire> accessoires ;
+
+
 
     public String getCarburant() {
         return carburant;
@@ -21,5 +23,13 @@ public class Engin extends ObjetMobile {
 
     public void setCarburant(String carburant) {
         this.carburant = carburant;
+    }
+
+    public List<Accessoire> getAccessoires() {
+        return accessoires;
+    }
+
+    public void setAccessoires(List<Accessoire> accessoires) {
+        this.accessoires = accessoires;
     }
 }
