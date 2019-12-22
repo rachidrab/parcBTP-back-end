@@ -9,6 +9,7 @@ import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 
 @Entity
@@ -44,6 +45,18 @@ public class ObjetMobile implements Serializable {
     @OneToMany(cascade=CascadeType.ALL)
     private List<Marque> marques;
 
+
+    //bi-directional many-to-one association to Collaborateurtache
+    @OneToMany(mappedBy="objetMobile", fetch=FetchType.EAGER)
+    private Set<ObjetChantier> objetChantiers;
+
+    public Set<ObjetChantier> getObjetChantiers() {
+        return objetChantiers;
+    }
+
+    public void setObjetChantiers(Set<ObjetChantier> objetChantiers) {
+        this.objetChantiers = objetChantiers;
+    }
 
     public int getId() {
         return id;

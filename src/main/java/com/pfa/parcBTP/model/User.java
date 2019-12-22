@@ -64,7 +64,7 @@ public class User implements Serializable {
 
     @ManyToMany(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private List<Role> roles;
+    private Set<Role> roles;
 
 
 
@@ -83,10 +83,16 @@ public class User implements Serializable {
         this.email = users.getEmail();
         this.dateOfBirth =users.getDateOfBirth();
         this.password = users.getPassword();
+        this.roles = users.getRoles();
     }
 
+    public int getId() {
+        return id;
+    }
 
-
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getFirstName() {
         return firstName;
@@ -144,11 +150,12 @@ public class User implements Serializable {
         this.password = password;
     }
 
-    public List<Role> getRoles() {
+    public Set<Role> getRoles() {
         return roles;
     }
 
-    public void setRoles(List<Role> roles) {
+    public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
 }
+

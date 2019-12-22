@@ -2,6 +2,7 @@ package com.pfa.parcBTP.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 
 @Entity
@@ -13,6 +14,11 @@ public class ChefChantier extends User implements Serializable {
 
 
     private String specialite;
+
+
+    //bi-directional many-to-one association to Collaborateurtache
+    @OneToMany(mappedBy="chefChantier", fetch=FetchType.EAGER)
+    private Set<PiloteChantier> piloteChantiers;
 
     public ChefChantier() {
     }

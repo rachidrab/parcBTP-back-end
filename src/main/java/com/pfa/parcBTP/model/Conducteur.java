@@ -1,9 +1,8 @@
 package com.pfa.parcBTP.model;
 
-import javax.persistence.DiscriminatorValue;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 @Entity
 @DiscriminatorValue("conducteur")
@@ -11,6 +10,10 @@ import java.io.Serializable;
 public class Conducteur extends User implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
+    //bi-directional many-to-one association to Collaborateurtache
+    @OneToMany(mappedBy="conducteur", fetch= FetchType.EAGER)
+    private Set<ConducteurEngin> conducteurEngins;
 
 
     private String permis;

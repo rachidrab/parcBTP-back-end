@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
 
+@PreAuthorize("hasAnyRole('ADMIN')")
 @RequestMapping("/api/users")
 @RestController
 public class UsersAPIS {
@@ -35,6 +36,7 @@ public class UsersAPIS {
 
 
 
+
     @GetMapping("/all")
     public Iterable<User> getAllUsersAPI() {
         return usersRepository.findAll();
@@ -42,7 +44,7 @@ public class UsersAPIS {
 
     // Tous Les Utilisateurs
 
-    @PreAuthorize("hasAnyRole('ADMIN')")
+
     @GetMapping("/magasinier/all")
     public Iterable<Magasinier> getAllMagasinierAPI() {
         return magasinierRepository.findAll();
@@ -50,7 +52,7 @@ public class UsersAPIS {
 
     // Tous Les Magasiniers
 
-    @PreAuthorize("hasAnyRole('ADMIN')")
+
     @GetMapping("/chef_chantier/all")
     public Iterable<ChefChantier> getAllChefChantierAPI() {
         return chefChantierRepository.findAll();
@@ -66,7 +68,6 @@ public class UsersAPIS {
 
     // Tous Les Conducteurs
 
-    @PreAuthorize("hasAnyRole('ADMIN')")
     @GetMapping("/conducteur/all")
     public Iterable<Conducteur> getAllConducteurAPI() {
         return conducteurRepository.findAll();
@@ -97,7 +98,7 @@ public class UsersAPIS {
 
     // APIS pour tester
 
-    @PreAuthorize("hasAnyRole('MAGASINIER','ADMIN')")
+
     @GetMapping("/magasinier")
     public Optional<Magasinier> magasinierAPI() {
         return magasinierRepository.findByUsername("khalidrabou");
@@ -105,7 +106,6 @@ public class UsersAPIS {
     }
 
 
-    @PreAuthorize("hasAnyRole('CONDUCTEUR')")
     @GetMapping("/conducteur")
     public Optional<Conducteur> conducteurAPI() {
 
@@ -115,7 +115,7 @@ public class UsersAPIS {
     }
 
 
-    @PreAuthorize("hasAnyRole('TRANSPORTEUR')")
+
     @GetMapping("/transporter")
     public Optional<Transporter> transporterAPI() {
 
@@ -124,7 +124,7 @@ public class UsersAPIS {
         //return "Hello Youtube";
     }
 
-    @PreAuthorize("hasAnyRole('CHEF_CHANTIER')")
+
     @GetMapping("/chef")
     public Optional<ChefChantier> chefChantierAPI() {
 
@@ -132,7 +132,7 @@ public class UsersAPIS {
         //return "Hello Youtube";
     }
 
-    @PreAuthorize("hasAnyRole(' ')")
+
     @GetMapping("/secured/all")
     public String securedHello() {
         return "Secured Hello";
