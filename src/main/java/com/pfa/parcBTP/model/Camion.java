@@ -2,6 +2,7 @@ package com.pfa.parcBTP.model;
 
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "camion")
@@ -19,8 +20,18 @@ public class Camion {
 
     private double ChargePoids;
 
+    //bi-directional many-to-one association to Collaborateurtache
+    @OneToMany(mappedBy="camion", fetch=FetchType.EAGER)
+    private Set<BonTransport> bonTransports;
+
 
     public Camion() {
+    }
+
+
+
+    public void setBonTransports(Set<BonTransport> bonTransports) {
+        this.bonTransports = bonTransports;
     }
 
     public Camion(String marque, String carburant, double chargePoids) {
