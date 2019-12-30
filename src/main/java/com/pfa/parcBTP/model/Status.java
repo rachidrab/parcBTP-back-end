@@ -8,6 +8,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
+import java.util.Set;
 
 
 @Entity
@@ -20,8 +21,9 @@ public class Status implements Serializable {
 
     private String etat;
 
-    @ManyToOne
-    private ObjetMobile objetMobile;
+    //bi-directional many-to-one association to Collaborateurtache
+    @OneToMany(mappedBy="status", fetch=FetchType.LAZY)
+    private Set<HistoriquePannes> historiquePannes;
 
 
     public Status() { }
@@ -40,7 +42,8 @@ public class Status implements Serializable {
     }
 
     public void setEtat(String etat) {
-        this.etat = etat;
+        this.etat = "A marche";
     }
+
 
 }

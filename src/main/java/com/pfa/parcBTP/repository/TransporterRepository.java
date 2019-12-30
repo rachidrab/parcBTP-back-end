@@ -10,6 +10,7 @@ public interface TransporterRepository extends CrudRepository<Transporter, Integ
 
     Optional<Transporter> findByUsername(String username);
     Optional<Transporter> findByLastName(String lastName);
+    Optional<Transporter> findById(int id);
 
 
 }

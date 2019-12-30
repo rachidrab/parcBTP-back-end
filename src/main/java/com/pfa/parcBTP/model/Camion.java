@@ -11,14 +11,25 @@ public class Camion {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "camion_id")
-    private int camion_id;
+    @Column(name = "id")
+    private int id;
 
     private String marque;
 
+    private String modele;
+
+    private String boiteVitesse;
+
+    private String kilometrage;
+
     private String carburant;
 
-    private double ChargePoids;
+    private String chargePoids;
+
+    private String puissance;
+
+
+
 
     //bi-directional many-to-one association to Collaborateurtache
     @OneToMany(mappedBy="camion", fetch=FetchType.EAGER)
@@ -29,26 +40,13 @@ public class Camion {
     }
 
 
-
-    public void setBonTransports(Set<BonTransport> bonTransports) {
-        this.bonTransports = bonTransports;
+    public int getId() {
+        return id;
     }
 
-    public Camion(String marque, String carburant, double chargePoids) {
-        this.marque = marque;
-        this.carburant = carburant;
-        ChargePoids = chargePoids;
+    public void setId(int id) {
+        this.id = id;
     }
-
-    public int getCamion_id() {
-        return camion_id;
-    }
-
-    public void setCamion_id(int camion_id) {
-        this.camion_id = camion_id;
-    }
-
-
 
     public String getMarque() {
         return marque;
@@ -56,6 +54,30 @@ public class Camion {
 
     public void setMarque(String marque) {
         this.marque = marque;
+    }
+
+    public String getModele() {
+        return modele;
+    }
+
+    public void setModele(String modele) {
+        this.modele = modele;
+    }
+
+    public String getBoiteVitesse() {
+        return boiteVitesse;
+    }
+
+    public void setBoiteVitesse(String boiteVitesse) {
+        this.boiteVitesse = boiteVitesse;
+    }
+
+    public String getKilometrage() {
+        return kilometrage;
+    }
+
+    public void setKilometrage(String kilometrage) {
+        this.kilometrage = kilometrage;
     }
 
     public String getCarburant() {
@@ -66,11 +88,19 @@ public class Camion {
         this.carburant = carburant;
     }
 
-    public double getChargePoids() {
-        return ChargePoids;
+    public String getChargePoids() {
+        return chargePoids;
     }
 
-    public void setChargePoids(double chargePoids) {
-        ChargePoids = chargePoids;
+    public void setChargePoids(String chargePoids) {
+        this.chargePoids = chargePoids;
+    }
+
+    public String getPuissance() {
+        return puissance;
+    }
+
+    public void setPuissance(String puissance) {
+        this.puissance = puissance;
     }
 }

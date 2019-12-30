@@ -14,5 +14,7 @@ public interface EnginRepository extends CrudRepository<Engin, Integer> {
 
     Iterable<Engin> findAllByAccessoiresIsNotNull();
 
+    Optional<Engin> findById(int id);
+
 
 }

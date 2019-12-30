@@ -8,7 +8,7 @@ public class Accessoire {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "accessoire_id")
-    private int accessoire_id;
+    private int id;
 
 
     private String nom;
@@ -17,12 +17,12 @@ public class Accessoire {
     public Accessoire() {
     }
 
-    public int getAccessoire_id() {
-        return accessoire_id;
+    public int getId() {
+        return id;
     }
 
-    public void setAccessoire_id(int accessoire_id) {
-        this.accessoire_id = accessoire_id;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNom() {

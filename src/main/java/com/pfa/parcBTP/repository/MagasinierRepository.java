@@ -12,5 +12,6 @@ import java.util.Optional;
 public interface MagasinierRepository extends CrudRepository<Magasinier, Integer> {
 
     Optional<Magasinier> findByUsername(String username);
+    Optional<Magasinier> findById(int id);
 
 }

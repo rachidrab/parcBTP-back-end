@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
 
-@PreAuthorize("hasAnyRole('ADMIN')")
-@RequestMapping("/api/users")
+@CrossOrigin(origins = "*", maxAge = 3600)
+@RequestMapping("/users")
 @RestController
 public class UsersAPIS {
 
@@ -45,6 +45,7 @@ public class UsersAPIS {
     // Tous Les Utilisateurs
 
 
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @GetMapping("/magasinier/all")
     public Iterable<Magasinier> getAllMagasinierAPI() {
         return magasinierRepository.findAll();
@@ -94,6 +95,11 @@ public class UsersAPIS {
         return transporterRepository.save(transporter);
     }
 
+
+    @PostMapping("/admins/add")
+    Admin addAdmin(@RequestBody Admin admin) {
+        return adminRepository.save(admin);
+    }
 
 
     // APIS pour tester

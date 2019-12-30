@@ -6,11 +6,14 @@ import com.pfa.parcBTP.repository.MaterielRepository;
 import com.pfa.parcBTP.repository.ObjetMobileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Optional;
 
-@RequestMapping("/api/objets")
+
+@RequestMapping("/objets")
 @RestController
 public class ObjetMobileAPIS {
 
@@ -29,4 +32,7 @@ public class ObjetMobileAPIS {
     public Iterable<Materiel> getAllMaterielsAPI() {
         return materielRepository.findAll();
     }
+
+
+
 }

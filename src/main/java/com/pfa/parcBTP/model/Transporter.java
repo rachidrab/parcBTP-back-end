@@ -27,6 +27,8 @@ public class Transporter extends User implements Serializable {
 
 
 
+
+
     public void setBonTransports(Set<BonTransport> bonTransports) {
         this.bonTransports = bonTransports;
     }

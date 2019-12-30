@@ -37,18 +37,25 @@ public class ObjetMobile implements Serializable {
     @Size(min=3, max = 50)
     private double poids;
 
+    private String marque;
 
-    @OneToMany(cascade=CascadeType.ALL)
-    private List<Status> status ;
+    private String modele;
 
-
-    @OneToMany(cascade=CascadeType.ALL)
-    private List<Marque> marques;
 
 
     //bi-directional many-to-one association to Collaborateurtache
     @OneToMany(mappedBy="objetMobile", fetch=FetchType.EAGER)
+    private Set<HistoriquePannes> historiquePannes;
+
+
+
+
+
+    //bi-directional many-to-one association to Collaborateurtache
+    @OneToMany(mappedBy="objetMobile", fetch=FetchType.LAZY)
     private Set<ObjetChantier> objetChantiers;
+
+
 
     public Set<ObjetChantier> getObjetChantiers() {
         return objetChantiers;
@@ -56,6 +63,23 @@ public class ObjetMobile implements Serializable {
 
     public void setObjetChantiers(Set<ObjetChantier> objetChantiers) {
         this.objetChantiers = objetChantiers;
+    }
+
+
+    public String getMarque() {
+        return marque;
+    }
+
+    public void setMarque(String marque) {
+        this.marque = marque;
+    }
+
+    public String getModele() {
+        return modele;
+    }
+
+    public void setModele(String modele) {
+        this.modele = modele;
     }
 
     public int getId() {
@@ -90,19 +114,12 @@ public class ObjetMobile implements Serializable {
         this.poids = poids;
     }
 
-    public List<Status> getStatus() {
-        return status;
+
+    public Set<HistoriquePannes> getHistoriquePannes() {
+        return historiquePannes;
     }
 
-    public void setStatus(List<Status> status) {
-        this.status = status;
-    }
-
-    public List<Marque> getMarques() {
-        return marques;
-    }
-
-    public void setMarques(List<Marque> marques) {
-        this.marques = marques;
+    public void setHistoriquePannes(Set<HistoriquePannes> historiquePannes) {
+        this.historiquePannes = historiquePannes;
     }
 }

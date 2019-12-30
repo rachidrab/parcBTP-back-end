@@ -21,16 +21,14 @@ public class Chantier {
     private Set<PiloteChantier> piloteChantiers;
 
     //bi-directional many-to-one association to Collaborateurtache
-    @OneToMany(mappedBy="chantier", fetch=FetchType.EAGER)
+    @OneToMany(mappedBy="chantier", fetch=FetchType.LAZY)
     private Set<ObjetChantier> objetChantiers;
 
 
     public Chantier() {
     }
 
-    public Set<ObjetChantier> getObjetChantiers() {
-        return objetChantiers;
-    }
+
 
     public void setObjetChantiers(Set<ObjetChantier> objetChantiers) {
         this.objetChantiers = objetChantiers;

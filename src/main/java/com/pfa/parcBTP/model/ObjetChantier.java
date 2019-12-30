@@ -1,11 +1,9 @@
 package com.pfa.parcBTP.model;
 
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 public class ObjetChantier implements Serializable {
@@ -15,7 +13,10 @@ public class ObjetChantier implements Serializable {
     @EmbeddedId
     private ObjetChantierPK id;
 
-    private Date date;
+    private Date dateDebut;
+
+    private Date dateFin;
+
 
 
     //bi-directional many-to-one association to Collaborateur
@@ -28,7 +29,25 @@ public class ObjetChantier implements Serializable {
     @JoinColumn(name="chantier_id",insertable=false, updatable=false)
     private Chantier chantier;
 
+
     public ObjetChantier() {
+    }
+
+
+    public Date getDateDebut() {
+        return dateDebut;
+    }
+
+    public void setDateDebut(Date dateDebut) {
+        this.dateDebut = dateDebut;
+    }
+
+    public Date getDateFin() {
+        return dateFin;
+    }
+
+    public void setDateFin(Date dateFin) {
+        this.dateFin = dateFin;
     }
 
     public ObjetChantierPK getId() {
@@ -39,17 +58,9 @@ public class ObjetChantier implements Serializable {
         this.id = id;
     }
 
-    public Date getDate() {
-        return date;
-    }
 
-    public void setDate(Date date) {
-        this.date = date;
-    }
 
-    public ObjetMobile getObjetMobile() {
-        return objetMobile;
-    }
+
 
     public void setObjetMobile(ObjetMobile objetMobile) {
         this.objetMobile = objetMobile;

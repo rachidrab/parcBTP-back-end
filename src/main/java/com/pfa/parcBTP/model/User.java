@@ -53,6 +53,15 @@ public class User implements Serializable {
     private String email;
 
 
+    private String description;
+
+    @NotBlank
+    private String ville;
+
+    @NotBlank
+    private String pays;
+
+
     @DateTimeFormat(pattern = "yyyy-mm-dd")
     private Date dateOfBirth;
 
@@ -84,6 +93,33 @@ public class User implements Serializable {
         this.dateOfBirth =users.getDateOfBirth();
         this.password = users.getPassword();
         this.roles = users.getRoles();
+        this.description = users.getDescription();
+        this.ville = users.getVille();
+        this.pays = users.getPays();
+    }
+
+    public String getVille() {
+        return ville;
+    }
+
+    public void setVille(String ville) {
+        this.ville = ville;
+    }
+
+    public String getPays() {
+        return pays;
+    }
+
+    public void setPays(String pays) {
+        this.pays = pays;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public int getId() {
