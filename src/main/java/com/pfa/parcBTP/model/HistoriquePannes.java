@@ -51,4 +51,12 @@ public class HistoriquePannes {
     public void setStatus(Status status) {
         this.status = status;
     }
+
+    public ObjetMobile getObjetMobile() {
+        return objetMobile;
+    }
+
+    public void setObjetMobile(ObjetMobile objetMobile) {
+        this.objetMobile = objetMobile;
+    }
 }

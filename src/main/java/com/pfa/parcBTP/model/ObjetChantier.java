@@ -58,9 +58,9 @@ public class ObjetChantier implements Serializable {
         this.id = id;
     }
 
-
-
-
+    public ObjetMobile getObjetMobile() {
+        return objetMobile;
+    }
 
     public void setObjetMobile(ObjetMobile objetMobile) {
         this.objetMobile = objetMobile;

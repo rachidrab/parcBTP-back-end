@@ -44,6 +44,12 @@ public class UsersAPIS {
 
     // Tous Les Utilisateurs
 
+    @DeleteMapping("/delete/{id}")
+    public void supprimerUser(@PathVariable int id) {
+        usersRepository.deleteById(id);
+    }
+
+
 
     @PreAuthorize("hasAnyRole('ADMIN')")
     @GetMapping("/magasinier/all")

@@ -73,4 +73,6 @@ public class PiloteChantier implements Serializable {
     public void setChantier(Chantier chantier) {
         this.chantier = chantier;
     }
+
+
 }

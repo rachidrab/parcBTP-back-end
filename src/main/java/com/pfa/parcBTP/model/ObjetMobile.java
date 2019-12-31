@@ -56,15 +56,9 @@ public class ObjetMobile implements Serializable {
     private Set<ObjetChantier> objetChantiers;
 
 
-
-    public Set<ObjetChantier> getObjetChantiers() {
-        return objetChantiers;
-    }
-
     public void setObjetChantiers(Set<ObjetChantier> objetChantiers) {
         this.objetChantiers = objetChantiers;
     }
-
 
     public String getMarque() {
         return marque;
@@ -112,11 +106,6 @@ public class ObjetMobile implements Serializable {
 
     public void setPoids(double poids) {
         this.poids = poids;
-    }
-
-
-    public Set<HistoriquePannes> getHistoriquePannes() {
-        return historiquePannes;
     }
 
     public void setHistoriquePannes(Set<HistoriquePannes> historiquePannes) {

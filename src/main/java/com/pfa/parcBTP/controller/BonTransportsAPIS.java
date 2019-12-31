@@ -27,10 +27,6 @@ public class BonTransportsAPIS {
         return bonTransportsRepository.findAll();
     }
 
-    @GetMapping("/add")
-    public BonTransport addBonTransport(BonTransport bonTransport) {
-        return bonTransportsRepository.save(bonTransport);
-    }
 
 
     @GetMapping("/camions/{marque}")
@@ -43,6 +39,13 @@ public class BonTransportsAPIS {
     @GetMapping("/camion/{id}")
     public Iterable<BonTransport> getBonTransportByCamionId(@PathVariable int id) {
         return bonTransportsRepository.getAllByCamion_Id(id);
+    }
+
+
+    @PostMapping("/add")
+    BonTransport addBonTransport(@RequestBody BonTransport bonTransport) {
+
+        return bonTransportsRepository.save(bonTransport);
     }
 
 

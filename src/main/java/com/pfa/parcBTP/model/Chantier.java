@@ -10,7 +10,7 @@ public class Chantier {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "chantier_id")
-    private int chantier_id;
+    private int id;
 
 
     private String nom;
@@ -34,12 +34,12 @@ public class Chantier {
         this.objetChantiers = objetChantiers;
     }
 
-    public int getChantier_id() {
-        return chantier_id;
+    public int getId() {
+        return id;
     }
 
-    public void setChantier_id(int chantier_id) {
-        this.chantier_id = chantier_id;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNom() {
@@ -48,10 +48,6 @@ public class Chantier {
 
     public void setNom(String nom) {
         this.nom = nom;
-    }
-
-    public Set<PiloteChantier> getPiloteChantiers() {
-        return piloteChantiers;
     }
 
     public void setPiloteChantiers(Set<PiloteChantier> piloteChantiers) {
